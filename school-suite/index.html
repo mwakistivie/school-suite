@@ -118,7 +118,7 @@ async function run(s,act,p){const r=s.role,fin=r==='bursar'||r==='admin',own=id=
  if(act==='audit'){if(r!=='admin')return{err:'Forbidden'};return{rows:AUD.slice(0,12)}}return{err:'Unknown action'}}
 /* ===== Connection layer: Apps Script (google.script.run), remote /exec URL, or built-in demo ===== */
 const LIVE=!!(window.google&&google.script&&google.script.run);/* Set your Apps Script /exec URL once here when hosting the PWA. It is not a secret: security comes from sessions and server-side checks. */
-const CONFIG={API_URL:''},APP_V='1.0.0';let API_URL=CONFIG.API_URL;try{API_URL=localStorage.getItem('maeve_url')||API_URL}catch(e){}
+const CONFIG={API_URL:'https://script.google.com/macros/s/AKfycbxQBswbTCCTnsjIABfTfkQvajIjSouDgpgpCGde74D02byET5NufrHAKD0tQdZZde7SAA/exec'},APP_V='1.0.0';let API_URL=CONFIG.API_URL;try{API_URL=localStorage.getItem('maeve_url')||API_URL}catch(e){}
 let MODE=LIVE?'apps':API_URL?'fetch':'demo',KI={},BZ=0;
 const kinfo=i=>MODE==='demo'?{name:(STU[i]||[])[0],cls:clsOf(i)}:(KI[i]||{});
 const nmOf=(rows,id)=>(rows.find(r=>r.sid===id)||{}).name||id;
